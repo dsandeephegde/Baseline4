@@ -13,7 +13,18 @@ public class Universe {
         State[][] finalStates = new State[states.length][states.length];
         for (int i = 0; i < states.length; i++) {
             for (int j = 0; j < states[i].length; j++) {
-                if(numberOfLiveNeighbours(i, j) < 2) {
+                if(states[i][j] == State.ALIVE) {
+                    if (numberOfLiveNeighbours(i, j) < 2) {
+                        finalStates[i][j] = State.DEAD;
+                    }
+                    else if(numberOfLiveNeighbours(i, j) > 3) {
+                        finalStates[i][j] = State.DEAD;
+                    }
+                    else {
+                        finalStates[i][j] = State.ALIVE;
+                    }
+                }
+                else {
                     finalStates[i][j] = State.DEAD;
                 }
             }

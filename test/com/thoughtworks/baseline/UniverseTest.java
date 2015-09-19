@@ -33,6 +33,35 @@ public class UniverseTest {
     }
 
     @Test
+    public void shouldReturnDeadForMoreThan3Neighbours() {
+        State[][] states = new State[3][3];
+        states[0][0] = State.ALIVE;
+        states[1][0] = State.ALIVE;
+        states[2][0] = State.DEAD;
+        states[0][1] = State.DEAD;
+        states[1][1] = State.ALIVE;
+        states[2][1] = State.DEAD;
+        states[0][2] = State.ALIVE;
+        states[1][2] = State.ALIVE;
+        states[2][2] = State.DEAD;
+
+        State[][] finalStates = new State[3][3];
+        finalStates[0][0] = State.ALIVE;
+        finalStates[1][0] = State.ALIVE;
+        finalStates[2][0] = State.DEAD;
+        finalStates[0][1] = State.DEAD;
+        finalStates[1][1] = State.DEAD;
+        finalStates[2][1] = State.DEAD;
+        finalStates[0][2] = State.ALIVE;
+        finalStates[1][2] = State.ALIVE;
+        finalStates[2][2] = State.DEAD;
+
+        Universe universe = new Universe(states);
+
+        assertEquals(finalStates, universe.tick());
+    }
+
+    @Test
     public void shouldReturnNumberOfAliveNeighbours() {
         State[][] states = new State[2][2];
         states[0][0] = State.DEAD;
@@ -54,6 +83,5 @@ public class UniverseTest {
         Universe universe = new Universe(states);
 
         assertEquals(1, universe.numberOfLiveNeighbours(1, 0));
-
     }
 }
