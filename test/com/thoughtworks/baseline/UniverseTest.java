@@ -62,6 +62,24 @@ public class UniverseTest {
     }
 
     @Test
+    public void shouldReturnAliveIf2Or3LiveNeighbours() {
+        State[][] states = new State[2][2];
+        states[0][0] = State.ALIVE;
+        states[1][0] = State.ALIVE;
+        states[0][1] = State.ALIVE;
+        states[1][1] = State.ALIVE;
+        State[][] deadStates = new State[2][2];
+        deadStates[0][0] = State.ALIVE;
+        deadStates[1][0] = State.ALIVE;
+        deadStates[0][1] = State.ALIVE;
+        deadStates[1][1] = State.ALIVE;
+
+        Universe universe = new Universe(states);
+
+        assertEquals(deadStates, universe.tick());
+    }
+
+    @Test
     public void shouldReturnNumberOfAliveNeighbours() {
         State[][] states = new State[2][2];
         states[0][0] = State.DEAD;
