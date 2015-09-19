@@ -25,6 +25,7 @@ public class Universe {
         int count = 0;
         for (int i = rowNumber - 1; i <= rowNumber + 1; i++) {
             for (int j = columnNumber - 1; j <= columnNumber + 1; j++) {
+                if(!(i == rowNumber && j == columnNumber))
                 try {
                     if (states[i][j] == State.ALIVE)
                         count++;

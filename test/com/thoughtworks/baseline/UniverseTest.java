@@ -43,4 +43,17 @@ public class UniverseTest {
 
         assertEquals(2, universe.numberOfLiveNeighbours(1, 1));
     }
+
+    @Test
+    public void shouldNotConsiderTheCurrentNodeForAliveNeighbours() {
+        State[][] states = new State[2][2];
+        states[0][0] = State.DEAD;
+        states[1][0] = State.ALIVE;
+        states[0][1] = State.ALIVE;
+        states[1][1] = State.DEAD;
+        Universe universe = new Universe(states);
+
+        assertEquals(1, universe.numberOfLiveNeighbours(1, 0));
+
+    }
 }
