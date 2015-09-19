@@ -25,4 +25,13 @@ public class ControllerTest {
         controller.runApplication();
         verify(view).input();
     }
+
+    @Test
+    public void shouldNotFailIfValueEnteredIsInvalid() {
+        View view = mock(View.class);
+        Controller controller = new Controller(view);
+        when(view.input()).thenReturn("invalid");
+        controller.runApplication();
+        verify(view).input();
+    }
 }

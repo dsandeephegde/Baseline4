@@ -10,6 +10,15 @@ public class Controller {
 
     public void runApplication() {
         view.output("Enter Number of rows in Universe\n");
-        int numberOfRows = Integer.parseInt(view.input());
+        int numberOfRows = getNumberOfRows();
+    }
+
+    private int getNumberOfRows() {
+        int numberOfRows = 0;
+        try {
+             numberOfRows = Integer.parseInt(view.input());
+        } catch (Exception ignored) {
+        }
+        return numberOfRows;
     }
 }
