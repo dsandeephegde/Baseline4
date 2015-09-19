@@ -10,6 +10,28 @@ public class Universe {
     }
 
     public State[][] tick() {
-        return new State[0][];
+        State[][] finalStates = new State[states.length][states.length];
+        for (int i = 0; i < states.length; i++) {
+            for (int j = 0; j < states[i].length; j++) {
+                if(numberOfLiveNeighbours(i, j) < 2) {
+                    finalStates[i][j] = State.DEAD;
+                }
+            }
+        }
+        return finalStates;
+    }
+
+    int numberOfLiveNeighbours(int rowNumber, int columnNumber) {
+        int count = 0;
+        for (int i = rowNumber - 1; i <= rowNumber + 1; i++) {
+            for (int j = columnNumber - 1; j <= columnNumber + 1; j++) {
+                try {
+                    if (states[i][j] == State.ALIVE)
+                        count++;
+                } catch (Exception ignored) {
+                }
+            }
+        }
+        return count;
     }
 }
