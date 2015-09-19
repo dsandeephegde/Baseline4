@@ -45,4 +45,19 @@ public class ParserTest {
 
         assertEquals(states, parser.parse());
     }
+
+    @Test
+    public void shouldReturnAllAliveForAllDeadInput() {
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("--");
+        strings.add("--");
+        Parser parser = new Parser(strings);
+        State[][] states = new State[2][2];
+        states[0][0] = State.DEAD;
+        states[1][0] = State.DEAD;
+        states[0][1] = State.DEAD;
+        states[1][1] = State.DEAD;
+
+        assertEquals(states, parser.parse());
+    }
 }
