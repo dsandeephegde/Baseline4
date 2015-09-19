@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Controller {
 
     private View view;
+    private Universe universe;
 
     public Controller(View view) {
         this.view = view;
@@ -20,6 +21,9 @@ public class Controller {
         }
         Parser parser = new Parser(universeString);
         State[][] states = parser.parse();
+        Universe universe = new Universe(states);
+        State[][] finalStates = universe.tick();
+
     }
 
     private int getNumberOfRows() {
