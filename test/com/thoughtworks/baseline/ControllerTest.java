@@ -2,9 +2,7 @@ package com.thoughtworks.baseline;
 
 import org.junit.Test;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class ControllerTest {
 
@@ -33,5 +31,14 @@ public class ControllerTest {
         when(view.input()).thenReturn("invalid");
         controller.runApplication();
         verify(view).input();
+    }
+
+    @Test
+    public void shouldGetTheInputNumberOfRowsTimes() {
+        View view = mock(View.class);
+        Controller controller = new Controller(view);
+        when(view.input()).thenReturn("4");
+        controller.runApplication();
+        verify(view, times(4 + 1)).input();
     }
 }

@@ -1,5 +1,7 @@
 package com.thoughtworks.baseline;
 
+import java.util.ArrayList;
+
 public class Controller {
 
     private View view;
@@ -11,6 +13,10 @@ public class Controller {
     public void runApplication() {
         view.output("Enter Number of rows in Universe\n");
         int numberOfRows = getNumberOfRows();
+        ArrayList<String> universeString = new ArrayList<String>();
+        for (int i = 0; i < numberOfRows; i++) {
+            universeString.add(view.input());
+        }
     }
 
     private int getNumberOfRows() {
