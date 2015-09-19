@@ -25,7 +25,10 @@ public class Universe {
                     }
                 }
                 else {
-                    finalStates[i][j] = State.DEAD;
+                    if(numberOfLiveNeighbours(i, j) == 3)
+                        finalStates[i][j] = State.ALIVE;
+                    else
+                        finalStates[i][j] = State.DEAD;
                 }
             }
         }
