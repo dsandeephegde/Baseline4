@@ -19,7 +19,7 @@ public class ControllerTest {
     public void shouldTakeInTheNumberOfRows() {
         View view = mock(View.class);
         Controller controller = new Controller(view);
-        when(view.input()).thenReturn("1");
+        when(view.input()).thenReturn("0");
         controller.runApplication();
         verify(view).input();
     }
