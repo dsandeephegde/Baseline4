@@ -23,7 +23,8 @@ public class Controller {
         State[][] states = parser.parse();
         Universe universe = new Universe(states);
         State[][] finalStates = universe.tick();
-
+        ConvertStateToString convertStateToString = new ConvertStateToString(finalStates);
+        view.output(convertStateToString.getString());
     }
 
     private int getNumberOfRows() {
