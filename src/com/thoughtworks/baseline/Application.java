@@ -9,5 +9,7 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         PrintStream printStream = new PrintStream(System.out);
         View view = new View(scanner, printStream);
+        Controller controller = new Controller(view);
+        controller.runApplication();
     }
 }
