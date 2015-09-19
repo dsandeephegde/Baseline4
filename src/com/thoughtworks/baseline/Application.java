@@ -1,3 +1,4 @@
+//Main Application which has main method
 package com.thoughtworks.baseline;
 
 import java.io.PrintStream;

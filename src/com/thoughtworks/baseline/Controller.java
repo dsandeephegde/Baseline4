@@ -1,3 +1,4 @@
+//Controls the flow of application
 package com.thoughtworks.baseline;
 
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public class Controller {
         for (int i = 0; i < numberOfRows; i++) {
             universeString.add(view.input());
         }
+        Parser parser = new Parser(universeString);
+        State[][] states = parser.parse();
     }
 
     private int getNumberOfRows() {

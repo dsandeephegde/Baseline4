@@ -1,3 +1,4 @@
+//View takes care of console input and output of the Application
 package com.thoughtworks.baseline;
 
 import java.io.PrintStream;
